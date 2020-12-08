@@ -1,0 +1,92 @@
+:root {
+    --gridGap: 3px;
+}
+
+#div-calculator-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: lightblue; */
+}
+
+#div-calculator {
+    padding: var(--gridGap);
+    justify-self: center;
+    display: grid;
+    background-color: lightgreen;
+    width: 300px;
+    height: 400px;
+    grid-template-areas: 
+    "screen screen screen delete"
+    "clear mrc mp ms"
+    "n7 n8 n9 divide"
+    "n4 n5 n6 multiply"
+    "n1 n2 n3 subtract"
+    "n0  point equals add";
+    grid-template-columns: "1fr 1fr 1fr 1fr";
+    grid-template-rows: "1fr 1fr 1fr 1fr 1fr 1fr";
+    gap: var(--gridGap);
+}
+
+button {
+    background-color: lightpink;
+    
+}
+
+#b1 {
+    grid-area: n1;
+    /* background-color: green; */
+}
+
+#b2 {
+    grid-area: n2;
+}
+
+#b3 {
+    grid-area: n3;
+}
+
+#b4 {
+    grid-area: n4;
+}
+
+#b5 {
+    grid-area: n5;
+}
+
+#b6 {
+    grid-area: n6;
+}
+
+#b7 {
+    grid-area: n7;
+}
+
+#b8 {
+    grid-area: n8;
+}
+
+#b9 {
+    grid-area: n9;
+}
+
+#bequals {
+    grid-area: equals;
+}
+
+#bminus {
+    grid-area: subtract;
+}
+
+#badd {
+    grid-area: add;
+}
+
+#bdivide {
+    grid-area: divide;
+}
+
+#bmultiply {
+    grid-area: multiply;
+}
