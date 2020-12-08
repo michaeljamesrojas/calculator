@@ -1,22 +1,53 @@
 :root {
-    --gridGap: 3px;
+    --gridGap: 10px;
+    --screenShadow: rgb(150, 150, 150);
+    --screenColor: rgb(211, 211, 211);
+    --buttonsColor: rgb(108, 204, 108);
+    --buttonsHoverColor: rgb(90, 168, 90);
+    --buttonsShadowColor:rgb(1, 54, 1);
+    --calculatorColor: rgb(1, 107, 1);
+    --buttonElevation: 4px;
+    --buttonElevationOpposite: -4px;
+}
+
+* {
+    font-weight: 900;
+    font-size: 1.2em;
 }
 
 #div-calculator-container{
     display: flex;
     align-content: center;
     justify-content: center;
+    /* position: relative; */
+    /* width: 95vw;
+    height: 90vh; */
     /* align-items: center; */
     /* background-color: lightblue; */
 }
 
+/* #div-calculator * {
+    overflow: auto;
+    resize: both;
+} */
+
 #div-calculator {
+    border-radius: 0.3em;
+    box-shadow: 0px 7px 3px 2px rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 1.1em;
+    overflow: auto;
+    resize: both;
+    min-width: min-content;
+    min-height: max-content;
+    max-width: 72vh;
+    max-height: 90vh;
+    width: 72vh;
+    height: 90vh;
     padding: var(--gridGap);
     justify-self: center;
     display: grid;
-    background-color: lightgreen;
-    width: 300px;
-    height: 400px;
+    background-color: var(--calculatorColor);
     grid-template-areas: 
     "screen screen screen delete"
     "clear mrc mp ms"
@@ -29,9 +60,72 @@
     gap: var(--gridGap);
 }
 
+#div-display{
+    /* border-radius: 5px; */
+    border-top: 5px solid var(--screenShadow);
+    border-left: 5px solid var(--screenShadow);
+    border-bottom: 2px solid var(--screenShadow);
+    border-right: 2px solid var(--screenShadow);
+    margin: 3px;
+    position: relative;
+    background-color: var(--screenColor);
+    grid-area: screen;
+    /* height: 100%; */
+    padding: 3px;
+}
+
+#div-mainDisplay {
+    border-top: 2px solid rgb(51, 51, 51);
+    display: flex;
+    /* background-color: lightsteelblue; */
+    height: 70%;
+}
+
+#p-mainDisplay {
+    padding: 1px;
+    /* font-size: 200%; */
+    width: 100%;
+    margin: auto;
+    text-align: right;
+    /* background-color: magenta; */
+}
+
+#div-subDisplay {
+    display: flex;
+    /* background-color: lightslategrey; */
+    height: 30%;
+}
+
+#p-subDisplay {
+    padding: 1px;
+    font-size: 0.7em;
+    text-align: right;
+    margin: auto;
+    width: 100%;
+    /* background-color: orchid; */
+}
+
 button {
-    background-color: lightpink;
+    outline: none;
+    border: none;
+    background-color: var(--buttonsColor);
+    border-radius: 10px;
+    box-shadow: 0px var(--buttonElevation) 0px 0px var(--buttonsShadowColor);
     
+}
+
+button:hover {
+    background-color: var(--buttonsHoverColor);
+}
+
+button:active {
+    transform: translateY(var(--buttonElevation) );
+    box-shadow: 0px -2px 0px 0px var(--buttonsShadowColor);
+}
+
+#b0 {
+    grid-area: n0;
+    /* background-color: green; */
 }
 
 #b1 {
@@ -89,4 +183,28 @@ button {
 
 #bmultiply {
     grid-area: multiply;
+}
+
+#bpoint {
+    grid-area: point;
+}
+
+#bdelete {
+    grid-area: delete;
+}
+
+#bclear {
+    grid-area: clear;
+}
+
+#bmrc {
+    grid-area: mrc;
+}
+
+#bmp {
+    grid-area: mp;
+}
+
+#bms {
+    grid-area: ms;
 }

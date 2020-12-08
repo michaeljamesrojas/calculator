@@ -1,4 +1,11 @@
+// Actual codes
+let mainDisplay = '';
 
+//Add 
+
+
+
+// Functions
 function add(x, y){
     return x + y;
 }
