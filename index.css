@@ -1,20 +1,38 @@
 :root {
+    --colorPickerSize: 10vh;
     --gridGap: 0.5em;
     --screenShadow: rgb(150, 150, 150);
     --screenColor: rgb(211, 211, 211);
-    --buttonsColor: rgb(108, 204, 108);
-    --buttonsBorderColor:  rgb(174, 214, 174);
-    --buttonsHoverColor: rgb(90, 168, 90);
-    --buttonsHoverPressedColor: rgb(61, 114, 61);
-    --buttonsShadowColor:rgb(1, 54, 1);
-    --calculatorColor: rgb(1, 107, 1);
+    --buttonsBorderColor:  rgba(255, 255, 255, 0.404);
+    --buttonsBorderColorPressed:  rgba(0, 0, 0, 0.267);
+    /* --buttonsHoverColor: rgba(253, 253, 253, 0.637); */
+    --buttonsHoverPressedColor: rgba(0, 0, 0, 0.199);
+    --buttonsShadowColor:rgba(0, 0, 0, 0.589);
     --buttonElevation: 0.2em;
     --buttonElevationOpposite: -4px;
+    --calculatorColor:rgb(228, 0, 0);
+    --buttonsColor: rgba(128, 128, 128, 0.877);
+    --operatorButtonsColor: rgba(0, 255, 255, 0.596);
+    --numberButtonsColor: rgba(121, 121, 121, 0.575);
+    --clearButtonColor: rgba(255, 0, 0, 0.452);
 }
 
 * {
     font-weight: 900;
     font-size: 1.2em;
+}
+
+/* TODO: Add appropriate colors cyan numbers, orange operators, green equal, redss  */
+
+#calculatorColorPicker{
+    /* border: 3px solid black;
+    border-radius: 50%; */
+    top: 3vh;
+    left: 3vh;
+    position: fixed;
+    /* background-color: red; */
+    height: var(--colorPickerSize);
+    width: var(--colorPickerSize);
 }
 
 #div-calculator-container{
@@ -34,10 +52,11 @@
 } */
 
 #div-calculator {
+    font-family: monospace;
     overflow: auto;
     resize: both;
     border-radius: 0.3em;
-    box-shadow: 0px 7px 3px 2px rgb(0, 0, 0);
+    box-shadow: 2px 7px 2px 2px rgb(0, 0, 0);
     font-weight: 900;
     font-size: 1.1em;
     min-width: min-content;
@@ -52,7 +71,7 @@
     background-color: var(--calculatorColor);
     grid-template-areas: 
     "screen screen screen delete"
-    "clear mrc mp ms"
+    "plusMinus clear mr ms"
     "n7 n8 n9 divide"
     "n4 n5 n6 multiply"
     "n1 n2 n3 subtract"
@@ -89,8 +108,9 @@
 }
 
 #p-mainDisplay {
-    text-shadow: 0px 4px 1px gray;
+    text-shadow: 0px 5px 1px rgba(0, 0, 0, 0.164);
     padding: 1px;
+    font-size: 0.9em;
     /* font-size: 200%; */
     width: 100%;
     margin: auto;
@@ -105,9 +125,9 @@
 }
 
 #p-subDisplay {
-    text-shadow: 0px 3px 1px gray;
+    text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.212);
     padding: 3px;
-    font-size: 0.7em;
+    font-size: 0.6em;
     text-align: right;
     margin: auto;
     width: 100%;
@@ -117,21 +137,31 @@
 button {
     outline: none;
     border: none;
-    border-top: 3px solid var(--buttonsBorderColor);
+    border-top: 4px solid var(--buttonsBorderColor);
+    border-left: 3px solid var(--buttonsBorderColor);
     background-color: var(--buttonsColor);
     border-radius: 10px;
-    box-shadow: 0px var(--buttonElevation) 0px 0px var(--buttonsShadowColor);
+    box-shadow: 2px var(--buttonElevation) 0px 0px var(--buttonsShadowColor);
     
 }
 
-button:hover {
+/* button:hover {
     background-color: var(--buttonsHoverColor);
-}
+} */
 
 button:active {
     transform: translateY(var(--buttonElevation) );
     box-shadow: 0px -2px 0px 0px var(--buttonsShadowColor);
     background-color: var(--buttonsHoverPressedColor);
+    border-color: var(--buttonsBorderColorPressed);
+}
+
+.operator{
+    background-color: var(--operatorButtonsColor);
+}
+
+.numbers {
+    background-color: var(--numberButtonsColor);
 }
 
 #b0 {
@@ -206,14 +236,15 @@ button:active {
 
 #bclear {
     grid-area: clear;
+    background-color: var(--clearButtonColor);
 }
 
-#bmrc {
-    grid-area: mrc;
+#bmr {
+    grid-area: mr;
 }
 
-#bmp {
-    grid-area: mp;
+#bplusMinus {
+    grid-area: plusMinus;
 }
 
 #bms {
