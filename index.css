@@ -22,8 +22,9 @@
     font-size: 1.2em;
 }
 
-/* TODO: Add appropriate colors cyan numbers, orange operators, green equal, redss  */
-
+/* TODO Add appropriate colors cyan numbers, orange operators, green equal, redss  */
+/* TODO Make delete button smaller */
+/* TODO make buttons same size */
 #calculatorColorPicker{
     /* border: 3px solid black;
     border-radius: 50%; */
@@ -59,10 +60,12 @@
     box-shadow: 2px 7px 2px 2px rgb(0, 0, 0);
     font-weight: 900;
     font-size: 1.1em;
-    min-width: min-content;
-    min-height: max-content;
+    /* min-width: min-content;
+    min-height: max-content; */
+    /* min-width: fit-content;
+    min-height: fit-content; */
     max-width: 72vh;
-    max-height: 90vh;
+    /* max-height: 90vh; */
     width: 72vh;
     height: 90vh;
     padding: var(--gridGap);
@@ -71,11 +74,11 @@
     background-color: var(--calculatorColor);
     grid-template-areas: 
     "screen screen screen delete"
-    "plusMinus clear mr ms"
+    "clear plusMinus mr ms"
     "n7 n8 n9 divide"
     "n4 n5 n6 multiply"
     "n1 n2 n3 subtract"
-    "n0  point equals add";
+    "point n0 equals add";
     grid-template-columns: "1fr 1fr 1fr 1fr";
     grid-template-rows: "1fr 1fr 1fr 1fr 1fr 1fr";
     gap: var(--gridGap);
@@ -243,7 +246,7 @@ button:active {
     grid-area: mr;
 }
 
-#bplusMinus {
+#bPlusMinus {
     grid-area: plusMinus;
 }
 
