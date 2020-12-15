@@ -10,6 +10,17 @@
 // alert(eval("7-(-7)"));
 // setInterval(() => {//
 // }, 3000);
+// let divElemCalc = document.getElementById('div-calculator');
+// //TEST
+// // alert(divElemCalc);
+// divElemCalc.addEventListener('mousedown',
+// function (e){
+//     //TODO checking 
+//     // TEST
+//     console.log(e.offsetX);
+//     // alert(e.offsetX);
+//     // alert(e.pageX);
+// });
 
 
 
@@ -29,16 +40,37 @@ let lastButtonPressed;
 let lastOperatorOrNumberButtonPressed = undefined;
 let mainDisplayIsAnswer = false;
 
+// SCOPE Realtime Color changer
+let inputElemColorPicker = document.getElementById('input-calculatorColorPicker');
+let divElemCalculator = document.getElementById("div-calculator");
+let divElemColorPicker = document.getElementById("div-calculatorColorPicker");
 
-//UNFIN
-//SCOPE Calculator Color changer
-//ADD color darker or whitener
-//ADD when pressed buttons will darker the curent bg
-// let inputElemColorPicker = document.getElementById("calculatorColorPicker");
-// inputElemColorPicker.addEventListener("close", function (){
-//     //  alert("hi");
+// DONE Put default color of calculator
+inputElemColorPicker.value = '#444444';
 
-// });
+setInterval(() => {
+    // TEST
+    // alert("dfsdfs");
+
+    divElemCalculator.style.backgroundColor = inputElemColorPicker.value;
+    inputElemColorPicker.style.backgroundColor = inputElemColorPicker.value;
+}, 100);
+
+
+// SCOPE pressing the div color picker on screen
+divElemColorPicker.addEventListener("click", function (){
+    // TEST
+    // alert("hi");
+    
+    // DONE will activate the input element click also
+    let inputElemColorPicker = document.getElementById('input-calculatorColorPicker');
+    inputElemColorPicker.click();
+    
+    // TEST
+    // alert(inputElemColorPicker.value);
+});
+// // ADD color darker or whitener
+// // ADD when pressed buttons will darker the curent bg
     
 
 
@@ -62,6 +94,7 @@ buttonElements.forEach(elementd => {
     })
 });
 
+
 //SCOPE delete button functionality
 let buttElemDelete = document.getElementById("bdelete");
 buttElemDelete.addEventListener("click", function (){
@@ -82,12 +115,13 @@ buttElemDelete.addEventListener("click", function (){
     updateNumberDisplay();
 })
 
-//UNFIN Unknown until other features are elaborated
+
 //SCOPE clear button functionality
 let buttElemClear = document.getElementById("bclear");
 buttElemClear.addEventListener("click", function (){
     resetOptionMainDisplayOrSubOrOtherVariablesOrMemory(true,true,true);
 })
+
 
 //SCOPE operators button functionalites
 let buttElemOperatorsCollection = document.getElementsByClassName("operator");
@@ -110,6 +144,7 @@ buttElemDot.addEventListener("click", function (){
     addDotToNumberIfPossible();
 });
 
+
 //SCOPE plus minus button functionality
 let buttElemPlusMinus = document.getElementById("bPlusMinus");
 buttElemPlusMinus.addEventListener("click", function (){
@@ -123,7 +158,7 @@ buttElemMemoryStore.addEventListener("click", function (){
     memoryStore();
 });
 
-//FOCUS1
+
 //SCOPE memory recall button functionality
 let buttElemMemoryRecall = document.getElementById("bmr");
 buttElemMemoryRecall.addEventListener("click", function (){
@@ -131,9 +166,7 @@ buttElemMemoryRecall.addEventListener("click", function (){
 });
 
 
-
 //SCOPE add keyboard support by
-//UNFIN adding keyboard event to document html
  document.addEventListener("keydown",function (e){
     //TEST
     // alert(e.key);
@@ -165,9 +198,6 @@ buttElemMemoryRecall.addEventListener("click", function (){
          case '=':
              clickTheElementId_('bequals');
              break;
-         case 'Enter':
-             clickTheElementId_('bequals');
-             break;
          case '.':
              clickTheElementId_('bpoint');
              break;
@@ -187,6 +217,7 @@ buttElemMemoryRecall.addEventListener("click", function (){
     
 
 });
+
 
 //NOTE This function should be last added event
 //DONE
@@ -213,20 +244,21 @@ buttElemsAllButtons.forEach( element => {
 });
 
 
-
 //FUNCTIONS DECLARATIONS
 
+
 //SCOPE memoryRecall by
-function memoryRecall(){//FOCUS2
-    //FINAL checking if memory is not undefined
+function memoryRecall(){
+    //DONE checking if memory is not undefined
     if(memory != undefined){
-        //FINAL before putting its value to the main display (updater)
+        //DONE before putting its value to the main display (updater)
         number = memory;
         updateNumberDisplay();
-        //FINAL and updating the variable stating main display is an answer
+        //DONE and updating the variable stating main display is an answer
         mainDisplayIsAnswer = false;
     }
 }
+
 
 //SCOPE memoryStore by
 function memoryStore(){
@@ -236,6 +268,7 @@ function memoryStore(){
     // alert(memory);
 }
 
+
 //SCOPE clickTheElementId by
 function clickTheElementId_(eId){
     //DONE getting the id of element
@@ -243,6 +276,7 @@ function clickTheElementId_(eId){
     //DONE and call click on it
     elem.click();
 }
+
 
 //SCOPE negateNumber by
 function negateNumber(){
@@ -271,6 +305,7 @@ function negateNumber(){
     }
 }
 
+
 //SCOPE addDotToNumberIfPossible by
 function addDotToNumberIfPossible(){
     //DONE checking if number is not a result of prev operation
@@ -293,8 +328,8 @@ function addDotToNumberIfPossible(){
     }
 }
 
-//UNFIN
-//SCOPE resetEverythingWithIncludeMemory
+
+//SCOPE resetOptionMainDisplayOrSubOrOtherVariablesOrMemory
 function resetOptionMainDisplayOrSubOrOtherVariablesOrMemory(includeMainDisplay,includeSubDisplay,includeOtherVariables){
     //DONE Reset
     if(includeMainDisplay){
@@ -327,6 +362,7 @@ function _resetSubdislayIfThereIsEqualSymbolIsThere(){
     }
     return false;
 }
+
 
 //DONE
 //SCOPE return last character from string
@@ -361,10 +397,6 @@ function displayAnswer(){
 }
 
 
-//UNFIN
-//SCOPE Plus Minus button functionality
-
-
 //DONE
 //SCOPE Evaluate the answer
 function evaluateTheAnswer(){
@@ -384,7 +416,7 @@ function evaluateTheAnswer(){
     //SCOPE evaluating answer
     //ADD Option for PEMDAS and Non-PEMDAS way of evaluation
     //DONE Non PEMDAS way evaluation
-    answer = eval(toBeOperatedTemp).toString();//FINAL
+    answer = eval(toBeOperatedTemp).toString();
 
     //TEST Display answer
     // alert("answer: "+ answer);
@@ -408,7 +440,6 @@ function _toBeOperatedActualDisplay(toBeOperatedString){
     return toBeOperatedString;
 }
 
-//UNFIN
 //SCOPE Todo when operator buttons are pressed
 function processOperatorClicked(){
     //ADD what if cascading equal button press

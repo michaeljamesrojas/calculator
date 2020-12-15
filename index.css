@@ -1,7 +1,7 @@
 :root {
-    --colorPickerSize: 10vh;
+    --colorPickerSize: 7vh;
     --gridGap: 0.5em;
-    --screenShadow: rgb(150, 150, 150);
+    --screenShadow: rgb(83, 83, 83);
     --screenColor: rgb(211, 211, 211);
     --buttonsBorderColor:  rgba(255, 255, 255, 0.404);
     --buttonsBorderColorPressed:  rgba(0, 0, 0, 0.267);
@@ -10,11 +10,14 @@
     --buttonsShadowColor:rgba(0, 0, 0, 0.589);
     --buttonElevation: 0.2em;
     --buttonElevationOpposite: -4px;
-    --calculatorColor:rgb(228, 0, 0);
     --buttonsColor: rgba(128, 128, 128, 0.877);
-    --operatorButtonsColor: rgba(0, 255, 255, 0.596);
-    --numberButtonsColor: rgba(121, 121, 121, 0.575);
-    --clearButtonColor: rgba(255, 0, 0, 0.452);
+    --numberButtonsColor: rgba(0, 255, 255, 0.767);
+    --operatorButtonsColor: rgba(255, 115, 0, 0.795);
+    --clearButtonColor: rgba(255, 0, 0, 0.801);
+    --buttonEqualColor: rgba(0, 214, 0, 0.801);
+    --buttonMemoryColors: rgba(255, 255, 0, 0.829);
+    --bodyBackgroundColor: rgb(255, 255, 255);
+    --calculatorColor:rgb(182, 185, 0);
 }
 
 * {
@@ -25,34 +28,61 @@
 /* TODO Add appropriate colors cyan numbers, orange operators, green equal, redss  */
 /* TODO Make delete button smaller */
 /* TODO make buttons same size */
-#calculatorColorPicker{
-    /* border: 3px solid black;
-    border-radius: 50%; */
-    top: 3vh;
+/* TODO z index of fixed things */
+
+/* SCOPE Color picker */
+/* FOCUS */
+#div-colorPicker {
+    /* TEST */
+    background-color: brown;
+    /* DONE actual */
+    width: 100%;
+    height: 100%;
+}
+
+/* SCOPE div calculator picker */
+#div-calculatorColorPicker{
+    border: 3px solid rgba(0, 0, 0, 0.781);
+    border-radius: 50%;
+    bottom: 3vh;
     left: 3vh;
     position: fixed;
-    /* background-color: red; */
+    background-color: red;
     height: var(--colorPickerSize);
     width: var(--colorPickerSize);
 }
 
-#div-calculator-container{
+/* SCOPE input calculator picker */
+#input-calculatorColorPicker{
+    display: none;
+}
+
+
+/* SCOPE body */
+body{
+    background-color: var(--bodyBackgroundColor);
     display: flex;
     align-content: center;
     justify-content: center;
-    /* position: relative; */
-    /* width: 95vw;
-    height: 90vh; */
-    /* align-items: center; */
-    /* background-color: lightblue; */
 }
 
-/* #div-calculator * {
-    overflow: auto;
-    resize: both;
-} */
+/* SCOPE calculator container */
+#div-calculator-container{
+    /* TEST */
+    /* background-color: lightblue; */
+    
+    display: grid;
+    grid-template-columns: 20px 2fr;
+    gap: 20px;
+    /* position: relative; */
+    /* align-items: center; */
+}
 
+
+/* SCOPE div calculator*/
 #div-calculator {
+    width: 70vh;
+    height: 90vh;
     font-family: monospace;
     overflow: auto;
     resize: both;
@@ -60,14 +90,6 @@
     box-shadow: 2px 7px 2px 2px rgb(0, 0, 0);
     font-weight: 900;
     font-size: 1.1em;
-    /* min-width: min-content;
-    min-height: max-content; */
-    /* min-width: fit-content;
-    min-height: fit-content; */
-    max-width: 72vh;
-    /* max-height: 90vh; */
-    width: 72vh;
-    height: 90vh;
     padding: var(--gridGap);
     justify-self: center;
     display: grid;
@@ -84,6 +106,7 @@
     gap: var(--gridGap);
 }
 
+/* SCOPE display */
 #div-display{
     /* display: flexbox; */
     /* border-radius: 5px; */
@@ -100,6 +123,7 @@
     padding: 3px;
 }
 
+/* SCOPE div maindisplay */
 #div-mainDisplay {
     /* min-width: 8em;
     max-width: 8em; */
@@ -110,6 +134,7 @@
     height: 70%;
 }
 
+/* SCOPE p maindisplay */
 #p-mainDisplay {
     text-shadow: 0px 5px 1px rgba(0, 0, 0, 0.164);
     padding: 1px;
@@ -121,12 +146,14 @@
     /* background-color: magenta; */
 }
 
+/* SCOPE div subDIsplay */
 #div-subDisplay {
     /* display: flex; */
     /* background-color: lightslategrey; */
     height: 30%;
 }
 
+/* SCOPE p subdisplay */
 #p-subDisplay {
     text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.212);
     padding: 3px;
@@ -137,6 +164,7 @@
     /* background-color: orchid; */
 }
 
+/* SCOPE elem button */
 button {
     outline: none;
     border: none;
@@ -152,21 +180,28 @@ button {
     background-color: var(--buttonsHoverColor);
 } */
 
+/* SCOPE active button */
 button:active {
+    /* background-color: var(--buttonsHoverPressedColor); */
     transform: translateY(var(--buttonElevation) );
     box-shadow: 0px -2px 0px 0px var(--buttonsShadowColor);
-    background-color: var(--buttonsHoverPressedColor);
     border-color: var(--buttonsBorderColorPressed);
 }
 
+
+/* SCOPE class operator */
 .operator{
     background-color: var(--operatorButtonsColor);
 }
 
-.numbers {
+
+/* SCOPE class numbers */
+.numbers, #bPlusMinus, #bpoint {
     background-color: var(--numberButtonsColor);
 }
 
+
+/* SCOPE ids individual buttons */
 #b0 {
     grid-area: n0;
     /* background-color: green; */
@@ -211,6 +246,7 @@ button:active {
 
 #bequals {
     grid-area: equals;
+    background-color: var(--buttonEqualColor);
 }
 
 #bminus {
@@ -235,21 +271,30 @@ button:active {
 
 #bdelete {
     grid-area: delete;
+    /* border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%; */
 }
 
 #bclear {
     grid-area: clear;
-    background-color: var(--clearButtonColor);
 }
 
-#bmr {
-    grid-area: mr;
+#bclear, #bdelete {
+    background-color: var(--clearButtonColor);
 }
 
 #bPlusMinus {
     grid-area: plusMinus;
 }
 
+#bmr {
+    grid-area: mr;
+}
+
 #bms {
     grid-area: ms;
+}
+
+#bms, #bmr {
+    background-color: var(--buttonMemoryColors);
 }
