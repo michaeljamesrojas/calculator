@@ -1,5 +1,5 @@
 :root {
-    --colorPickerSize: 7vh;
+    --colorPickerSize: 1.9em;
     --gridGap: 0.5em;
     --screenShadow: rgb(83, 83, 83);
     --screenColor: rgb(211, 211, 211);
@@ -17,7 +17,7 @@
     --buttonEqualColor: rgba(0, 214, 0, 0.801);
     --buttonMemoryColors: rgba(255, 255, 0, 0.829);
     --bodyBackgroundColor: rgb(255, 255, 255);
-    --calculatorColor:rgb(182, 185, 0);
+    --calculatorColor:rgb(92, 92, 92);
 }
 
 * {
@@ -25,13 +25,44 @@
     font-size: 1.2em;
 }
 
-/* TODO Add appropriate colors cyan numbers, orange operators, green equal, redss  */
 /* TODO Make delete button smaller */
 /* TODO make buttons same size */
 /* TODO z index of fixed things */
 
-/* SCOPE Color picker */
 /* FOCUS */
+/* SCOPE make the display overflow */
+
+/* SCOPE */
+#div-moon{
+    /* TEST */
+    /* visibility: visible; */
+    
+    right: 1em;
+    top: 0em;
+    position: fixed;
+    width: 2em;
+    height: 2em;
+    background-color: rgba(165, 42, 42, 0);
+    border-radius: 100%;
+    box-shadow: 0.5em 0.5em white;
+    z-index: 99;
+}
+
+#div-sun{
+    /* TEST */
+    /* visibility: hidden; */
+    z-index: 100;
+    right: 0.5em;
+    top: 0.5em;
+    position: fixed;
+    width: 2em;
+    height: 2em;
+    background-color: rgb(255, 238, 0);
+    border-radius: 100%;
+    /* box-shadow: 0.5em 0.5em black; */
+}
+
+/* SCOPE Color picker */
 #div-colorPicker {
     /* TEST */
     background-color: brown;
@@ -44,8 +75,8 @@
 #div-calculatorColorPicker{
     border: 3px solid rgba(0, 0, 0, 0.781);
     border-radius: 50%;
-    bottom: 3vh;
-    left: 3vh;
+    bottom: 1em;
+    left: 1em;
     position: fixed;
     background-color: red;
     height: var(--colorPickerSize);

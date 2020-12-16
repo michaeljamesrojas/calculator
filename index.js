@@ -39,6 +39,12 @@ let lastOperatorPressed = undefined;
 let lastButtonPressed;
 let lastOperatorOrNumberButtonPressed = undefined;
 let mainDisplayIsAnswer = false;
+let isNightMode = false;
+
+
+// SCOPE give user information about calculator
+alert("Tip:\n1. You can use night mode.\n2. You can resize the calculator.\n3. You can pick the color of the calculator(in realtime)");
+
 
 // SCOPE Realtime Color changer
 let inputElemColorPicker = document.getElementById('input-calculatorColorPicker');
@@ -53,14 +59,33 @@ setInterval(() => {
     // alert("dfsdfs");
 
     divElemCalculator.style.backgroundColor = inputElemColorPicker.value;
-    inputElemColorPicker.style.backgroundColor = inputElemColorPicker.value;
+    divElemColorPicker.style.backgroundColor = inputElemColorPicker.value;
 }, 100);
+
+
+
+// SCOPE Night mode changer
+let divSun = document.getElementById("div-sun");
+let divMoon = document.getElementById("div-moon");
+
+
+divSun.addEventListener('click',
+function (){
+    changeNightMode();
+}
+);
+
+divMoon.addEventListener('click',
+function (){
+    changeNightMode();
+}
+);
 
 
 // SCOPE pressing the div color picker on screen
 divElemColorPicker.addEventListener("click", function (){
     // TEST
-    // alert("hi");
+    // alert(divElemColorPicker.id);
     
     // DONE will activate the input element click also
     let inputElemColorPicker = document.getElementById('input-calculatorColorPicker');
@@ -246,6 +271,23 @@ buttElemsAllButtons.forEach( element => {
 
 //FUNCTIONS DECLARATIONS
 
+//SCOPE change night mode by
+function changeNightMode(){
+    if(isNightMode){
+        // DONE and change document bg background and the visibility of the moon and sun accordingly
+            divSun.style.visibility = 'hidden';
+            // REMOVE
+            // divMoon.style.visibility = 'visible';
+            document.body.style.backgroundColor = '#000000';
+        }
+        else{
+            // REMOVE
+            // divMoon.style.visibility = 'hidden';
+            divSun.style.visibility = 'visible';
+            document.body.style.backgroundColor = '#ffffff';
+        }
+        isNightMode = !isNightMode;
+}
 
 //SCOPE memoryRecall by
 function memoryRecall(){
