@@ -22,23 +22,6 @@
 //     // alert(e.pageX);
 // });
 
-function Book(title, author, pages, isRead){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    
-    this.information = function (){
-        console.log( title + " by " + author + ',' + pages + 'pages' + ',');
-    };
-}
-
-let kd = new Book('Learn enough', 'Michael James ROjas', 234, true);
-
-alert(kd.information);
-
-
-
 
 //TODO round up number to prevent overflowing in screen
 
