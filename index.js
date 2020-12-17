@@ -22,6 +22,20 @@
 //     // alert(e.pageX);
 // });
 
+function Book(title, author, pages, isRead){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+    
+    this.information = function (){
+        console.log( title + " by " + author + ',' + pages + 'pages' + ',');
+    };
+}
+
+let kd = new Book('Learn enough', 'Michael James ROjas', 234, true);
+
+alert(kd.information);
 
 
 
@@ -57,7 +71,6 @@ inputElemColorPicker.value = '#444444';
 setInterval(() => {
     // TEST
     // alert("dfsdfs");
-
     divElemCalculator.style.backgroundColor = inputElemColorPicker.value;
     divElemColorPicker.style.backgroundColor = inputElemColorPicker.value;
 }, 100);
@@ -86,7 +99,9 @@ function (){
 divElemColorPicker.addEventListener("click", function (){
     // TEST
     // alert(divElemColorPicker.id);
-    
+    // let x = document.getElementById('div-display');
+    // alert(x.style.overflowX);
+
     // DONE will activate the input element click also
     let inputElemColorPicker = document.getElementById('input-calculatorColorPicker');
     inputElemColorPicker.click();

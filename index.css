@@ -1,5 +1,5 @@
 :root {
-    --colorPickerSize: 1.9em;
+    --colorPickerSize: 7vh;
     --gridGap: 0.5em;
     --screenShadow: rgb(83, 83, 83);
     --screenColor: rgb(211, 211, 211);
@@ -25,60 +25,66 @@
     font-size: 1.2em;
 }
 
+
+/* TEST */
+#divTest{
+    z-index: 200;
+    /* width: 300px; */
+    overflow: auto;
+    justify-self: left;
+    align-self: left;
+    background-color: yellow;
+}
+
 /* TODO Make delete button smaller */
 /* TODO make buttons same size */
 /* TODO z index of fixed things */
 
-/* FOCUS */
-/* SCOPE make the display overflow */
-/*  */
+
+
 /* SCOPE */
 #div-moon{
     /* TEST */
     /* visibility: visible; */
     
-    right: 1em;
+    cursor: grab;
+    right: 3vh;
     top: 0em;
     position: fixed;
-    width: 2em;
-    height: 2em;
+    width: 7vh;
+    height: 7vh;
     background-color: rgba(165, 42, 42, 0);
     border-radius: 100%;
-    box-shadow: 0.5em 0.5em white;
+    box-shadow: 1vh 1vh white;
     z-index: 99;
 }
 
 #div-sun{
     /* TEST */
     /* visibility: hidden; */
+
+    cursor: grab;
     z-index: 100;
-    right: 0.5em;
-    top: 0.5em;
+    right: 1.5vh;
+    top: 1vh;
     position: fixed;
-    width: 2em;
-    height: 2em;
+    width: 7vh;
+    height: 7vh;
     background-color: rgb(255, 238, 0);
     border-radius: 100%;
     /* box-shadow: 0.5em 0.5em black; */
 }
 
-/* SCOPE Color picker */
-#div-colorPicker {
-    /* TEST */
-    background-color: brown;
-    /* DONE actual */
-    width: 100%;
-    height: 100%;
-}
 
 /* SCOPE div calculator picker */
 #div-calculatorColorPicker{
-    border: 3px solid rgba(0, 0, 0, 0.781);
+    border: 3px solid rgba(149, 149, 149, 0.815);
     border-radius: 50%;
-    bottom: 1em;
-    left: 1em;
+    bottom: 3vh;
+    left: 3vh;
     position: fixed;
     background-color: red;
+    cursor: grab;
     height: var(--colorPickerSize);
     width: var(--colorPickerSize);
 }
@@ -132,13 +138,18 @@ body{
     "n4 n5 n6 multiply"
     "n1 n2 n3 subtract"
     "point n0 equals add";
-    grid-template-columns: "1fr 1fr 1fr 1fr";
+    grid-template-columns: "1fr 1fr 1fr 2fr";
     grid-template-rows: "1fr 1fr 1fr 1fr 1fr 1fr";
     gap: var(--gridGap);
 }
 
+/* FOCUS overflow display > find: width*/
 /* SCOPE display */
 #div-display{
+    justify-content: right;
+    align-items: right;
+    overflow-x: auto;
+    /* width: 200%; */
     /* display: flexbox; */
     /* border-radius: 5px; */
     /* max-width: 50vh; */
@@ -162,8 +173,10 @@ body{
     border-top: 2px solid rgb(51, 51, 51);
     /* display: flex; */
     /* background-color: lightsteelblue; */
-    height: 70%;
+    height: 60%;
+    /* justify-self: right; */
 }
+
 
 /* SCOPE p maindisplay */
 #p-mainDisplay {
@@ -171,7 +184,7 @@ body{
     padding: 1px;
     font-size: 0.9em;
     /* font-size: 200%; */
-    width: 100%;
+    /* width: 100%; */
     margin: auto;
     text-align: right;
     /* background-color: magenta; */
@@ -181,7 +194,7 @@ body{
 #div-subDisplay {
     /* display: flex; */
     /* background-color: lightslategrey; */
-    height: 30%;
+    height: 40%;
 }
 
 /* SCOPE p subdisplay */
@@ -191,12 +204,13 @@ body{
     font-size: 0.6em;
     text-align: right;
     margin: auto;
-    width: 100%;
+    /* width: 100%; */
     /* background-color: orchid; */
 }
 
-/* SCOPE elem button */
+/* SCOPE button */
 button {
+    /* padding: 20px; */
     outline: none;
     border: none;
     border-top: 4px solid var(--buttonsBorderColor);
@@ -204,7 +218,7 @@ button {
     background-color: var(--buttonsColor);
     border-radius: 10px;
     box-shadow: 2px var(--buttonElevation) 0px 0px var(--buttonsShadowColor);
-    
+    /* min-width: 100%; */
 }
 
 /* button:hover {
