@@ -1,4 +1,4 @@
 # calculator
 Calculator project (The Odin Project Curriculum)
 
-Visit site: [michaeljamesrojas.github.io/calculator]
+[Visit The WEB APP](michaeljamesrojas.github.io/calculator)
