@@ -1,4 +1,4 @@
-chmod +x createvm.sh
+chmod +x vm/createvm.sh
 
 sudo apt-get update && sudo apt-get install linux-headers-generic && sudo apt-get install virtualbox && sudo apt-get install virtualbox-dkms
 
