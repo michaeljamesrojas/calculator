@@ -3,7 +3,7 @@ MACHINENAME=testvm
 
 # Download debian.iso
 if [ ! -f ./debian.iso ]; then
-    wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-9.9.0-amd64-netinst.iso -O debian.iso
+    wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.6.0-amd64-netinst.iso -O debian.iso
 fi
 
 #Create VM
