@@ -1,5 +1,5 @@
 #!/bin/bash
-MACHINENAME=testMachine
+MACHINENAME=testvm
 
 # Download debian.iso
 if [ ! -f ./debian.iso ]; then
@@ -20,9 +20,11 @@ VBoxManage storagectl $MACHINENAME --name "IDE Controller" --add ide --controlle
 VBoxManage storageattach $MACHINENAME --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium `pwd`/debian.iso
 VBoxManage modifyvm $MACHINENAME --boot1 dvd --boot2 disk --boot3 none --boot4 none
 
+
 #Enable RDP
 VBoxManage modifyvm $MACHINENAME --vrde on
 VBoxManage modifyvm $MACHINENAME --vrdemulticon on --vrdeport 10001
 
 #Start the VM
+MACHINENAME=testvm
 VBoxHeadless --startvm $MACHINENAME
