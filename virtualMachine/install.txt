@@ -1,0 +1,16 @@
+chmod +x createvm.sh
+
+sudo apt-get update
+sudo apt-get install virtualbox
+
+dkms error:
+https://stackoverflow.com/questions/60350358/how-do-i-resolve-the-character-device-dev-vboxdrv-does-not-exist-error-in-ubu
+
+sudo apt-get install virtualbox-dkms
+
+sudo dpkg-reconfigure virtualbox-dkms 
+sudo dpkg-reconfigure virtualbox
+
+sudo apt-get install linux-headers-generic
+
+wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.6.0-amd64-netinst.iso -O debian.iso
