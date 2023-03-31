@@ -11,3 +11,5 @@ function Book(title, author, pages, isRead){
 
 let k = new Book('Learn enough', 'Michael James ROjas', 234, true);
 alert(k.info);
+
+//HAHAHA updated na thissss
